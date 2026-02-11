@@ -1,0 +1,1 @@
+bem vindo ao cryptotry um software de cryptografia simples para iniciantes
