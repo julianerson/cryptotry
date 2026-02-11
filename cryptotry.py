@@ -9,9 +9,10 @@ def xor():
     pos = "".join(chr(ord(o) ^ key)for o in palavra)
     print(f"sua senha e {pos}")
 def cesar():
-    print('obs: nao pode haver virgulas, e letras maiusculas viram minusculas e nao tem espaços')
+    pos = []
+    print('obs: nao pode haver virgulas, e letras maiusculas viram minusculas')
     word = input("diga sua palavra")
-    word = word.lower().relace(" ", "")
+    word = word.lower()
     key = int(input("diga a chave"))
     for o in word:
         z = ord(o)
@@ -19,14 +20,19 @@ def cesar():
             p = z + key
             if 58 <= p:
                 p = p - 10
+            lo = chr(p)
         if 97 <= z <= 122:
             p = z + key
             if 123 <= p:
                 p = p - 26
-        pos = "".join(chr(p))
+            lo = chr(p)
+        else:
+            lo = o
+        pos.append(lo)
+    pos = "".join(pos)
     print(
         f"""oi, bem com a chave {key} temos {pos}
-obs:maiusculos sao minusculos aqui, e os espaços foram apagados, porque?
+obs:maiusculos sao minusculos aqui, porque?
 Porque sou preguiçoso:)"""
 )
 
