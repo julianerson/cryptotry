@@ -15,21 +15,18 @@ def cesar():#cifra de cesar aqui
     word = word.lower()#por motivos de preguiça, eu nao adicionei letras maiusculas
     key = int(input("diga a chave"))#chave para decodificar
     for o in word:
+        lo = o
         z = ord(o)#transformaçao para unicode
-        if 48 <= z <= 57:#aqui a identificaçao de letras
+        if 48 <= z <= 57:
             p = z + key
-            if 58 <= p:#caso a chave for grande, essa e a soluçao
-                while 58 <= p:
-                    p = p - 10
+            while p >= 58:
+                p = p - 10
             lo = chr(p)
-        if 97 <= z <= 122:#aqui a de numeros
+        if 97 <= z <= 122:#aqui a de letras
             p = z + key
-            if 123 <= p:
-                while 123 <= p:
-                    p = p - 26
+            while 123 <= p:
+                p = p - 26
             lo = chr(p)
-        else:
-            lo = o
         pos.append(lo)#junta tudo
     pos = "".join(pos)#transforma a lista em string
     print(
