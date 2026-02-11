@@ -18,18 +18,20 @@ def cesar():#cifra de cesar aqui
         z = ord(o)#transformaçao para unicode
         if 48 <= z <= 57:#aqui a identificaçao de letras
             p = z + key
-            if 58 <= p:#preciso melhorar, as vezes a chave e beem grande
-                p = p - 10
+            if 58 <= p:#caso a chave for grande, essa e a soluçao
+                while 58 <= p:
+                    p = p - 10
             lo = chr(p)
         if 97 <= z <= 122:#aqui a de numeros
             p = z + key
             if 123 <= p:
-                p = p - 26
+                while 123 <= p:
+                    p = p - 26
             lo = chr(p)
         else:
             lo = o
-        pos.append(lo)
-    pos = "".join(pos)
+        pos.append(lo)#junta tudo
+    pos = "".join(pos)#transforma a lista em string
     print(
         f"""oi, bem com a chave {key} temos {pos}
 obs:maiusculos sao minusculos aqui, porque?
