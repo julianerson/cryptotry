@@ -1,5 +1,4 @@
-from InquirerPy import inquirer
-
+import click
 print('bem vindo ao encriptografador de ?trybulet?')
 
 def xor():#aqui temos uma cryptografia xor, ela pode encryptografar e desincryptar
@@ -42,11 +41,11 @@ obs:maiusculos sao minusculos aqui, porque?
 Porque sou preguiçoso:)""") 
                        
     if command == "f":
+        print('\n' * 4000)
         nkey = input("se voce sabe que uma chave nao e a certa escreva aqui, se for mais de uma voce so coloca um espaço para separar").split()
         if nkey != "":
             nkey = [int(do) for do in nkey]#diz quais chaves nao temos que usar
         
-        print('\n' * 4000)
         keys = int(input("diga quantos chutes vamos dar"))#quantidade de chutes que podemos dar
 
         print('obs: nao pode haver virgulas, e letras maiusculas viram minusculas')
@@ -80,12 +79,8 @@ Porque sou preguiçoso:)""")
                 break
 
 while True:
-    print('\n' * 4000)
-    cryp = inquirer.select(
-        message="diga qual criptografia usar para encriptar",
-        choices=["sair","xor", "cesar"],
-        default="Python",
-        ).execute()#aqui se encontra a GUI principal
+    input("clique enter se estiver pronto")
+    cryp = click.prompt("diga qual criptografia usar para encriptar",type=click.Choice(["sair","xor", "cesar"]))
     cryp = str(cryp)
     if "xor" in cryp:
         xor()
