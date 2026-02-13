@@ -1,4 +1,4 @@
-import click
+import inquirer
 print('bem vindo ao encriptografador de ?trybulet?')
 
 def xor():#aqui temos uma cryptografia xor, ela pode encryptografar e desincryptar
@@ -78,9 +78,15 @@ Porque sou preguiçoso:)""")
                 print(f'acredito que a palavra seja {pos} com a chave {key}')
                 break
 
+pergunte = [inquirer.List(
+    'size',
+    
+    message="me diga qual forma de cryptografia/descryptografia vc quer",
+    choices=["xor","sair","cesar"]
+)]
+
 while True:
-    input("clique enter se estiver pronto")
-    cryp = click.prompt("diga qual criptografia usar para encriptar",type=click.Choice(["sair","xor", "cesar"]))
+    cryp = inquirer.prompt(pergunte)
     cryp = str(cryp)
     if "xor" in cryp:
         xor()
